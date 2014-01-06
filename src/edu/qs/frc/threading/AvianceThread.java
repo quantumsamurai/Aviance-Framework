@@ -60,7 +60,7 @@ public class AvianceThread extends Thread{
         //the interrupt flag should be cleared before calling house keeping
         interrupted = false;
         
-       // startup();
+       startup();
         
         try{
             while(true){
@@ -85,6 +85,10 @@ public class AvianceThread extends Thread{
     }
     
     protected void iteration(){
+        
+    }
+    
+    protected void startup(){
         
     }
     
