@@ -31,18 +31,20 @@ public class AccelerometerReadings extends AvianceThread{
     
     
     }
-   // public static final ADXL345_I2C accelerometer = new ADXL345_I2C(Hardware.accelerometerI2CPort, ADXL345_I2C.DataFormat_Range.k16G); 
+     public static ADXL345_I2C accelerometer = new ADXL345_I2C(Hardware.accelerometerI2CPort, ADXL345_I2C.DataFormat_Range.k4G); 
     
     
     protected void iteration(){
-        
-//               accelerationX = accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
-//        accelerationY = accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
-//        accelerationZ = accelerometer.getAcceleration(ADXL345_I2C.Axes.kZ);
-       SmartDashboard.putNumber("Acceleration X: ", accelerationX);
-    
+       
+               accelerationX = accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
+        accelerationY = accelerometer.getAcceleration(ADXL345_I2C.Axes.kY);
+       accelerationZ = accelerometer.getAcceleration(ADXL345_I2C.Axes.kZ);
+       
+    System.out.println("Accelerometer X" + accelerationX);
+      System.out.println("Accelerometer Y" + accelerationY);
+        System.out.println("Accelerometer Z" + accelerationZ);
     }
-    protected void startup(){    SmartDashboard.putString("Accelerometer Status", active );}
+    protected void startup(){SmartDashboard.putString("Accelerometer Status", active );}
 
     protected void reset(){
         SmartDashboard.putString("Accelerometer Status", disabled);

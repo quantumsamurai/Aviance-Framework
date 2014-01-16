@@ -25,6 +25,7 @@ public final class AvianceRobot extends AvianceThread{
     private AutonomousRoutinePoller poller;
     private AvianceGeneralShooter shooter;
     
+    public static final String  autonomousThreads = "autonomousThreads";
     public static final String systemThreadGroup = "roboxsysthreads";
     public static final String teleopThreads = "teleoperatedthreads";
     public static final String continiousThreads = "continiousthreads";// ok that makes sense, 
@@ -38,6 +39,7 @@ public final class AvianceRobot extends AvianceThread{
         UsageReporting.report(UsageReporting.kResourceType_Language, UsageReporting.kLanguage_Java);
  
         threadManager.createGroup(teleopThreads);
+        threadManager.createGroup(autonomousThreads);
         threadManager.createGroup(systemThreadGroup);
         
         threadManager.addThread(systemThreadGroup, this);
@@ -134,9 +136,9 @@ public final class AvianceRobot extends AvianceThread{
             
              // and over here is where we launch another Isolate program that is very simple and guaranteed to work in worse case senario
         
-            Isolate failsafe = new Isolate("edu.qs.frc.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
-            failsafe.start();
-            failsafe.join();
+        //    Isolate failsafe = new Isolate("edu.qs.frc.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
+        //    failsafe.start();
+          //  failsafe.join();
             
         }
     }

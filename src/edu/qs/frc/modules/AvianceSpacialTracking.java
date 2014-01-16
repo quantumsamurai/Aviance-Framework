@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj.Encoder;
 public class AvianceSpacialTracking extends AvianceThread{
     private Encoder e_front_left = Hardware.encoder_front_left;
     private Encoder e_front_right = Hardware.encoder_front_right;
-    private Encoder e_rear_left = Hardware.encoder_back_left;
-    private Encoder e_rear_right = Hardware.encoder_back_right;
+//    private Encoder e_rear_left = Hardware.encoder_back_left;
+  //  private Encoder e_rear_right = Hardware.encoder_back_right;
     
 //    private Ultrasonic u_left = HardwareOLD.ultrasonics[HardwareOLD.ULTRASONIC_LEFT];
 //    private Ultrasonic u_right = HardwareOLD.ultrasonics[HardwareOLD.ULTRASONIC_RIGHT];

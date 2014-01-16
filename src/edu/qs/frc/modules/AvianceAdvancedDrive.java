@@ -29,10 +29,10 @@ public class AvianceAdvancedDrive extends AvianceThread{
         AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this); // add itself to threadmanager when its created
    }
     
-    private static Talon front_left = ((Talon) Hardware.pwm[Hardware.talon_back_left]);
+   // private static Talon front_left = ((Talon) Hardware.pwm[Hardware.talon_back_left]);
     private static Talon front_right = ((Talon) Hardware.pwm[Hardware.talon_front_right]);
-    private static Talon rear_left = ((Talon) Hardware.pwm[Hardware.talon_back_left]);
-    private static Talon rear_right = ((Talon) Hardware.pwm[Hardware.talon_back_right]);
+  //  private static Talon rear_left = ((Talon) Hardware.pwm[Hardware.talon_back_left]);
+   // private static Talon rear_right = ((Talon) Hardware.pwm[Hardware.talon_back_right]);
     
     
     private static double left_val = 0, right_val = 0;
@@ -57,10 +57,10 @@ public class AvianceAdvancedDrive extends AvianceThread{
 
       // System.out.println("Values Left " + left_val + "Right " + right_val);
 
-        front_left.set(left_val); 
+    //    front_left.set(left_val); 
         front_right.set(right_val);
-        rear_left.set(left_val);
-        rear_right.set(right_val);
+      //  rear_left.set(left_val);
+//        rear_right.set(right_val);
     }
 
     protected void reset(){

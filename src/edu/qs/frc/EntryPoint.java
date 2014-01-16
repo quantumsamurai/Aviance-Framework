@@ -32,17 +32,21 @@ public class EntryPoint extends MIDlet {
         AvianceRobot robot = new AvianceRobot();
         
         new AvianceTankDrive();
+        //new Sonars();
+      //  new AccelerometerReadings();
+       // new AutonomousOne();
         
         //all modules that are in use should be created here, they add themseleves the their thread groups
         //new AvianceAdvancedDrive();
-        new AvianceGeneralShooter();
-        new AvianceJoystickSwapper();
-        new GeneralClimbing();
-        new AvianceSpacialTracking();
-        new GyroTesting();
-        new InsightDevice();
-        new AccelerometerReadings();
-        new AvianceSpacialTracking();
+//        new AvianceGeneralShooter();
+//        new AvianceJoystickSwapper();
+//        new GeneralClimbing();
+//        new AvianceSpacialTracking();
+//        new GyroTesting();
+      //  new InsightDevice();
+       // new AccelerometerReadings();
+        new OneArmSystem();
+//        new AvianceSpacialTracking();
         
         try{
             Thread.sleep(3600000); //this is equivalant to hour day lol really? in ms yes
