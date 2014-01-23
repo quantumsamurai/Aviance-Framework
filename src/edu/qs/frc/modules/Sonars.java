@@ -16,9 +16,9 @@ public class Sonars extends AvianceThread {
  public Sonars(){
  AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
  }    
- 
+ public static double sonarVoltage1;
  protected void iteration(){
- double sonarVoltage1 = Hardware.sonar1.getAverageVoltage()/9.8 * 1000;
+sonarVoltage1 = Hardware.sonar1.getAverageVoltage()/ 98*1000;
  double sonarVoltage2 = Hardware.sonar2.getAverageVoltage() /98;
  System.out.println("Analog " + sonarVoltage1);
  }

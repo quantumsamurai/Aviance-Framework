@@ -22,7 +22,7 @@ public final class AvianceRobot extends AvianceThread{
     private AvianceThreadManager threadManager = AvianceThreadManager.getInstance();
     public static DriverStation driverStation= DriverStation.getInstance();
     private Watchdog watchdog = Watchdog.getInstance();
-    private AutonomousRoutinePoller poller;
+    public static  AutonomousRoutinePoller poller;
     private AvianceGeneralShooter shooter;
     
     public static final String  autonomousThreads = "autonomousThreads";
@@ -93,20 +93,23 @@ public final class AvianceRobot extends AvianceThread{
                 
                 else if (autonomous){
                     threadManager.startThreads(autonomousRoutines[autonomousRoutine]);
+                    threadManager.startThreads(autonomousThreads);
                     
                     while(driverStation.isEnabled())
                         AvianceThreadHousekeeping(sleepTime);
                     threadManager.interruptThreads(autonomousRoutines[autonomousRoutine]); //much cleaner ill be back in a few, okay
-                    
+                    threadManager.interruptThreads(autonomousThreads);
                 }
                 
                 else if (teleoperated){
                     threadManager.startThreads(teleopThreads);
-                    
+                   threadManager.interruptThreads(autonomousThreads); 
                     while(driverStation.isEnabled())
                         AvianceThreadHousekeeping(sleepTime);
                     threadManager.interruptThreads(teleopThreads);
                 }
+                
+                
                 //throw new Exception();// why throw new exception, to test if new isolate was created
             }
         }

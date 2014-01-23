@@ -27,10 +27,10 @@ public class Hardware {
     public static final int talon_front_right = 2;
   //  public static final int talon_back_left = 3;
     //public static final int talon_back_right = 4;
-    public static final int talon_shooter = 5;
+    public static final int talon_indexer = 4;
     public static final int talon_left_arm = 3;
     //public static final int talon_right_arm = 4;
-    public static final int relay_arm = 1;
+    public static final int relay_defense = 1;
     public static final int relay_winch = 2;
     
     //toggle variables
@@ -41,7 +41,8 @@ private static boolean currentButton = false;
     //ADXL345 Accelerometer I2C
     public static final int accelerometerI2CPort = 1;
    
-    
+    //Axis Camera IP
+    public static final String CamIP = "10.16.1.11";
  
     //Digital I/O ports
     
@@ -80,11 +81,12 @@ private static boolean currentButton = false;
         System.out.println("Initializing Hardware...");
         pwm[talon_front_left] = new Talon(talon_front_left);
         pwm[talon_front_right] = new Talon(talon_front_right);
+        pwm[talon_indexer] = new Talon(talon_indexer);
 //        pwm[talon_back_left] = new Talon(talon_back_left);
 //        pwm[talon_back_right] = new Talon(talon_back_right); //yep, now lets make sure it works
 //        
-        relays[relay_arm] = new Relay(relay_arm);
-        relays[relay_winch] = new Relay(relay_winch);
+        relays[relay_defense] = new Relay(relay_defense);
+      //  relays[relay_winch] = new Relay(relay_winch);
        
 encoder_front_left.setDistancePerPulse((4*Math.PI) / 360);
         encoder_front_right.setDistancePerPulse((4*Math.PI) / 360);

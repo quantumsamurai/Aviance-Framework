@@ -21,7 +21,7 @@ public class AvianceGeneralShooter extends AvianceThread{
     }
     
  
-private static Talon shooter = ((Talon) Hardware.pwm[Hardware.talon_shooter]);
+private static Talon shooter = ((Talon) Hardware.pwm[Hardware.talon_indexer]);
 private static String shooter_status = "False";
 
     

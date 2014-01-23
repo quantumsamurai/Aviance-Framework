@@ -13,17 +13,17 @@ import edu.wpi.first.wpilibj.Talon;
  *
  * @author admin
  */
-public class OneArmSystem extends AvianceThread{
+public class Indexer extends AvianceThread{
     Talon arm = new Talon(3);
     
-    public OneArmSystem(){
+    public Indexer(){
     AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
     }
     protected void iteration(){
-      if(Hardware.joystick1.getRawButton(2)){
+      if(Hardware.joystick1.getRawButton(3)){
     arm.set(.5);}
     
-      else if(Hardware.joystick1.getRawButton(3)){arm.set(-.5);
+      else if(Hardware.joystick1.getRawButton(1)){arm.set(-.5);
       }
       else{arm.set(0);
       }

@@ -30,22 +30,24 @@ public class EntryPoint extends MIDlet {
          * ALL MODULES ARE RESPONSIBLE FOR ADDING THEMSELVES TO THE THREADGROUP THEY BELONG TO
          */
         AvianceRobot robot = new AvianceRobot();
-        
+       // new SFXTest();
+        //new AutonomousRoutines();
         new AvianceTankDrive();
+        //new AutonomousRoutinePoller();
         //new Sonars();
-      //  new AccelerometerReadings();
+        //new AccelerometerReadings();
        // new AutonomousOne();
-        
+       // new EncoderTesting();
         //all modules that are in use should be created here, they add themseleves the their thread groups
         //new AvianceAdvancedDrive();
 //        new AvianceGeneralShooter();
 //        new AvianceJoystickSwapper();
-//        new GeneralClimbing();
+       // new GeneralClimbing();
 //        new AvianceSpacialTracking();
 //        new GyroTesting();
-      //  new InsightDevice();
+        //new InsightDevice();
        // new AccelerometerReadings();
-        new OneArmSystem();
+        new Indexer();
 //        new AvianceSpacialTracking();
         
         try{

@@ -26,13 +26,13 @@ public class InsightDevice  extends AvianceThread{
     DecimalData acceleration;
     float battVoltage = (float)AvianceRobot.driverStation.getBatteryVoltage();
     float accelerometerX = (float)AccelerometerReadings.accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
-    
+    float gyroAngle =(float) AvianceTankDrive.gyro.getAngle();
     protected void iteration(){
         SmartDashboard.putString("Insight", Hardware.Active);
        // System.out.println(battVoltage);
         Hardware.display.startDisplay();
-        acceleration = new DecimalData ("Acceleration X: ");
-        acceleration.setData(accelerometerX);
+        acceleration = new DecimalData ("Gyro ");
+        acceleration.setData(gyroAngle);
      //  disp_batteryVoltage = new DecimalData("Batt:");
        // disp_batteryVoltage.setData(battVoltage);   
         

@@ -20,7 +20,7 @@ public class GeneralClimbing extends AvianceThread{
    // System.out.println("Climbing Thread...");
     AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this); 
     }
-    private Relay arm = ((Relay) Hardware.relays[Hardware.relay_arm]);
+    private Relay arm = ((Relay) Hardware.relays[Hardware.relay_defense]);
     private Relay winch = ((Relay) Hardware.relays[Hardware.relay_winch]);
     
     

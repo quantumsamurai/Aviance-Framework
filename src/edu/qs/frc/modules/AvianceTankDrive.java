@@ -21,13 +21,15 @@ public class AvianceTankDrive extends AvianceThread{
     boolean debug = true;
   //  Talon back_left = (Talon) Hardware.pwm[Hardware.talon_back_left];
    // Talon back_right = (Talon) Hardware.pwm[Hardware.talon_back_right];
-    Talon front_left = (Talon) Hardware.pwm[Hardware.talon_front_left];
-    Talon front_right = (Talon) Hardware.pwm[Hardware.talon_front_right];
-    Gyro gyro = new Gyro(Hardware.gyro_port);
-    Servo servo = new Servo(4);
+public static     Talon front_left = (Talon) Hardware.pwm[Hardware.talon_front_left];
+    public static Talon front_right = (Talon) Hardware.pwm[Hardware.talon_front_right];
+    public static Gyro gyro = new Gyro(Hardware.gyro_port);
+   // Servo servo = new Servo(4);
      double left;
      double right;
-    public AvianceTankDrive(){
+    
+     
+     public AvianceTankDrive(){
         
         AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
     }
@@ -36,19 +38,19 @@ public class AvianceTankDrive extends AvianceThread{
       
    
         
-    if(Hardware.joystick2.getRawButton(1)){gyro.reset();}   
+
    
     
       
         
 
-        System.out.println("Left "+ Hardware.encoder_front_left.getDistance() /2.2375); // 8.95 per rev
-      System.out.println("Right " + Hardware.encoder_front_right.getDistance() /2.2375);// -8.95 per revolution
-    // if((Hardware.encoder_front_left.getDistance() /2.2375) <= 60){front_left.set(1); front_right.set(-.6711
-  //      );}
-{   left = 1*(Hardware.joystick2.getRawAxis(2));
+        System.out.println("Left Encoder"+ Hardware.encoder_front_left.getDistance() /2.2375); // 8.95 per rev
+     System.out.println("Right Encoder" + Hardware.encoder_front_right.getDistance() /2.2375);// -8.95 per revolution
+   System.out.println("Gyro " + gyro.getAngle());
+
+   {   left = 1*(Hardware.joystick1.getRawAxis(2));
         
-         right = -1*(Hardware.joystick2.getRawAxis(4));
+         right = -1*(Hardware.joystick1.getRawAxis(4));
         
         front_left.set(left);
         //front_left.set(left);

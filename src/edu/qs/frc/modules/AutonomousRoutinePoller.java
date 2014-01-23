@@ -18,11 +18,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutonomousRoutinePoller extends AvianceThread{
     
-    private Joystick joy = Hardware.joystick2; // the hardware class will be responsible for swapping joys
+    private Joystick joy = Hardware.joystick1; // the hardware class will be responsible for swapping joys
     private final Object intLock = new Object();
-    private int routine = 1;
+    public static int routine = 1;
     
-    int value = 1;
+    public static int value = 1;
     final int[] buttons = {1,2,3,4,5}; //these are the raw button codes for each routine
     
     {
