@@ -37,7 +37,7 @@ public class Hardware {
      private static boolean motorStatus;
 private static boolean previousButton = false;
 private static boolean currentButton = false;
-    
+     
     //ADXL345 Accelerometer I2C
     public static final int accelerometerI2CPort = 1;
    
@@ -60,6 +60,10 @@ private static boolean currentButton = false;
     //Individualized hardware
     public static Joystick joystick1 = new Joystick(1); // joysticks are NOT FINAL; this allows the JoystickSwapper to swap them
     public static Joystick joystick2 = new Joystick(2); //we can make them non-final and create a module that listens for a button to swap them and then swaps them
+    
+    //joystick Deadband
+                     public static double deadband = .1;
+
     
     public static final Encoder encoder_front_left = new Encoder(2,1);  //this is a more concise way of doing things even though it's slightly inconsistent
     public static final Encoder encoder_front_right = new Encoder(3,4);

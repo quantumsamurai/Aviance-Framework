@@ -48,17 +48,26 @@ public class Joystick1Simplify {
             return Hardware.joystick1.getRawAxis(6);
             }
                public static double LeftJoystickXAxis(){
+                   DeadbandFilter(Hardware.joystick1.getRawAxis(1));
             return Hardware.joystick1.getRawAxis(1);
             }
             public static double LeftJoystickYAxis(){
+                DeadbandFilter(Hardware.joystick1.getRawAxis(2));
             return Hardware.joystick1.getRawAxis(2);
             }
                         public static double RightJoystickXAxis(){
+                            DeadbandFilter(Hardware.joystick1.getRawAxis(3));
             return Hardware.joystick1.getRawAxis(3);
             }
                 public static double RightJoystickYAxis(){
+                    DeadbandFilter(Hardware.joystick1.getRawAxis(4));
             return Hardware.joystick1.getRawAxis(4);
             }
+public static double DeadbandFilter(double Axis){
+   
+if(Math.abs(Axis) < Hardware.deadband){
+Axis = 0;
 
-                
-}
+    } else{ Axis = Axis;}    
+return Axis;
+}}

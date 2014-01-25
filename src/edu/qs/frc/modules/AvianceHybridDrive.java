@@ -22,17 +22,30 @@ public class AvianceHybridDrive extends AvianceThread{
     Talon drive_right = (Talon) Hardware.pwm[Hardware.talon_front_right];
        double leftspeed;
     double rightspeed;
+    double DPadXValue;
+    double DPadYValue;
+    double RightJoystick;
+    double LeftJoystick;
     protected void iteration(){
- 
+        DPadXValue = Joystick1Simplify.DPadXAxis();
+        DPadYValue = Joystick1Simplify.DPadYAxis();
+        RightJoystick = Joystick1Simplify.RightJoystickYAxis();
+        LeftJoystick = Joystick1Simplify.LeftJoystickYAxis();
+        
+        leftspeed = DPadYValue -DPadXValue + LeftJoystick;
+    rightspeed = DPadYValue + DPadXValue + RightJoystick;
+    limit(leftspeed);
+    limit(rightspeed);
     
-    if(Joystick1Simplify.DPadXAxis() != 0 ){leftspeed = Joystick1Simplify.DPadXAxis();
-    rightspeed = Joystick1Simplify.DPadXAxis();}   
-   else if(Joystick1Simplify.DPadYAxis() != 0 ){leftspeed = Joystick1Simplify.DPadYAxis();
-    rightspeed = Joystick1Simplify.DPadYAxis();}
+    drive_left.set(leftspeed);
+    drive_right.set(rightspeed);
     }
-//    else {leftspeed = Joystick1Simplify.LeftJoystickYAxis();  
-//    rightspeed = Joystick1Simplify.RightJoystickYAxis();}
-//    
-    
     protected void reset(){}
+
+    private double limit(double speed) {
+        if(Math.abs(speed) > 1){ speed = 1;}
+        else{speed = speed;}
+        return speed;
+    }
+   
 }
