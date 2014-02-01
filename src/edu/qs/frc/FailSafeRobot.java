@@ -28,11 +28,14 @@ public class FailSafeRobot extends SimpleRobot{
     
     
     public static void main(String[] args){
-      
-        //fuck it we'll do this later
+     args[0] = "John";
         System.out.println("FAILSAFE ROBOT HAS BEEN STARTED"); //it works
      
         
 
     }
+    public boolean bool(){
+    
+    
+    return true;}
 }

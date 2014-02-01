@@ -31,8 +31,9 @@ public class EntryPoint extends MIDlet {
          */
         AvianceRobot robot = new AvianceRobot();
        // new SFXTest();
+        new AvianceHybridDrive();
         //new AutonomousRoutines();
-        new AvianceTankDrive();
+        //new AvianceTankDrive();
         //new AutonomousRoutinePoller();
         //new Sonars();
         //new AccelerometerReadings();
@@ -47,6 +48,7 @@ public class EntryPoint extends MIDlet {
 //        new GyroTesting();
         //new InsightDevice();
        // new AccelerometerReadings();
+        new Defense();
         new Indexer();
 //        new AvianceSpacialTracking();
         

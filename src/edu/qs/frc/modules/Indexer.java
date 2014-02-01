@@ -5,6 +5,7 @@
 package edu.qs.frc.modules;
 
 import edu.qs.frc.hardware.Hardware;
+import edu.qs.frc.hardware.Joystick1Simplify;
 import edu.qs.frc.threading.AvianceThread;
 import edu.qs.frc.threading.AvianceThreadManager;
 import edu.wpi.first.wpilibj.Talon;
@@ -20,11 +21,11 @@ public class Indexer extends AvianceThread{
     AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
     }
     protected void iteration(){
-      if(Hardware.joystick1.getRawButton(3)){
-    arm.set(.5);}
+      if(Joystick1Simplify.getLeftTriggerButton()){
+    arm.set(.5);} // intake
     
-      else if(Hardware.joystick1.getRawButton(1)){arm.set(-.5);
-      }
+      else if(Joystick1Simplify.getRightTriggerButton()){arm.set(-.25);
+      }// extract
       else{arm.set(0);
       }
     }

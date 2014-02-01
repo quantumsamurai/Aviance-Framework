@@ -25,7 +25,7 @@ public class SFXTest extends AvianceThread{
             SmartDashboard.putBoolean("Button Back", Joystick1Simplify.getBackButton());
               SmartDashboard.putBoolean("Button Start", Joystick1Simplify.getStartButton());
                 SmartDashboard.putBoolean("Button Left Trigger", Joystick1Simplify.getLeftTriggerButton());
-        SmartDashboard.putNumber("Drive Left", AvianceTankDrive.front_left.getSpeed());
+        SmartDashboard.putNumber("Drive Left", AvianceTankDrive.leftmotor.getSpeed());
         SmartDashboard.putNumber("Drive Right", AvianceTankDrive.front_right.getSpeed());
         SmartDashboard.putNumber("Gyro Angle", AvianceTankDrive.gyro.getAngle());
         SmartDashboard.putNumber("Sonar", Sonars.sonarVoltage1);

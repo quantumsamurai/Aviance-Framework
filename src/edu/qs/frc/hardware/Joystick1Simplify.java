@@ -45,8 +45,9 @@ public class Joystick1Simplify {
             
             }
             public static double DPadYAxis(){
+               
             return Hardware.joystick1.getRawAxis(6);
-            }
+             }
                public static double LeftJoystickXAxis(){
                    DeadbandFilter(Hardware.joystick1.getRawAxis(1));
             return Hardware.joystick1.getRawAxis(1);

@@ -19,8 +19,15 @@ public class Defense extends AvianceThread{
     AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
     }
     Relay defense = (Relay)Hardware.relays[Hardware.relay_defense];
+    Relay comp = (Relay) Hardware.relays[Hardware.relay_compressor];
     protected void iteration(){
-      if(Joystick1Simplify.getLeftTriggerButton()){//expand actuator
+       if(Hardware.toggleJoystick1(4)){comp.set(Relay.Value.kOn);
+       comp.setDirection(Relay.Direction.kForward);
+       }
+       else{comp.set(Relay.Value.kOff);
+       }
+       
+      if(Joystick1Simplify.getRightBackButton()){//expand actuator
        defense.set(Relay.Value.kOn);
        defense.setDirection(Relay.Direction.kForward);
    }

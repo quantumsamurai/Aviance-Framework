@@ -24,9 +24,9 @@ public class AutonomousRoutines extends AvianceThread{
     public void iteration(){
         routine =   AvianceRobot.poller.getRoutine();
     if(routine ==1 ){System.out.println("Entered Auto 1");
-        AvianceTankDrive.front_left.set(.5); AvianceTankDrive.front_right.set(.5);
+        AvianceTankDrive.leftmotor.set(.5); AvianceTankDrive.front_right.set(.5);
     Time(3); 
-      AvianceTankDrive.front_left.set(0); AvianceTankDrive.front_right.set(0);
+      AvianceTankDrive.leftmotor.set(0); AvianceTankDrive.front_right.set(0);
       Time(60);
           
     }

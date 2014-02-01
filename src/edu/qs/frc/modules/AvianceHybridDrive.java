@@ -27,17 +27,18 @@ public class AvianceHybridDrive extends AvianceThread{
     double RightJoystick;
     double LeftJoystick;
     protected void iteration(){
+        
         DPadXValue = Joystick1Simplify.DPadXAxis();
-        DPadYValue = Joystick1Simplify.DPadYAxis();
+        DPadYValue = -Joystick1Simplify.DPadYAxis();
         RightJoystick = Joystick1Simplify.RightJoystickYAxis();
         LeftJoystick = Joystick1Simplify.LeftJoystickYAxis();
         
-        leftspeed = DPadYValue -DPadXValue + LeftJoystick;
-    rightspeed = DPadYValue + DPadXValue + RightJoystick;
+        leftspeed = DPadYValue -DPadXValue + LeftJoystick * .75;
+    rightspeed = DPadYValue + DPadXValue + RightJoystick * .75;
     limit(leftspeed);
     limit(rightspeed);
     
-    drive_left.set(leftspeed);
+    drive_left.set(-leftspeed);
     drive_right.set(rightspeed);
     }
     protected void reset(){}
