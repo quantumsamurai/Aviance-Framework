@@ -44,11 +44,7 @@ public class AvianceAdvancedDrive extends AvianceThread{
         else{
         AvianceAdvancedDrive.JoystickThrottleRight(Hardware.joystick2.getY()); //DO NOT MODIFY
         AvianceAdvancedDrive.JoystickThrottleLeft(Hardware.joystick2.getY());        //DO NOT MODIFY
-       if(Hardware.joystick2.getRawButton(Hardware.joystickGyro)){//DO NOT MODIFY
-        left_val = GyroTesting.output;
-        right_val = GyroTesting.output;
-       
-        }}
+}
 
         
    

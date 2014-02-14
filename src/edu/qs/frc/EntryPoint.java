@@ -30,27 +30,16 @@ public class EntryPoint extends MIDlet {
          * ALL MODULES ARE RESPONSIBLE FOR ADDING THEMSELVES TO THE THREADGROUP THEY BELONG TO
          */
         AvianceRobot robot = new AvianceRobot();
-       // new SFXTest();
+   //     new SFXTest();
         new AvianceHybridDrive();
-        //new AutonomousRoutines();
-        //new AvianceTankDrive();
-        //new AutonomousRoutinePoller();
+        new AutonomousRoutines();
+        new Shooter();
+        new AutonomousRoutinePoller();
         //new Sonars();
-        //new AccelerometerReadings();
-       // new AutonomousOne();
-       // new EncoderTesting();
-        //all modules that are in use should be created here, they add themseleves the their thread groups
-        //new AvianceAdvancedDrive();
-//        new AvianceGeneralShooter();
-//        new AvianceJoystickSwapper();
-       // new GeneralClimbing();
-//        new AvianceSpacialTracking();
-//        new GyroTesting();
-        //new InsightDevice();
-       // new AccelerometerReadings();
+        new InsightDevice();
+//        new AccelerometerReadings();
         new Defense();
         new Indexer();
-//        new AvianceSpacialTracking();
         
         try{
             Thread.sleep(3600000); //this is equivalant to hour day lol really? in ms yes
@@ -59,7 +48,7 @@ public class EntryPoint extends MIDlet {
         
         System.out.println("Moving on... the program has quit after 3600000 miliseconds (one hour)"); // exactly what i was going todo
         System.out.println("...The cRio is a union worker.");//lmao, it makes more sense to change the time to one day, maybe even an hour; although it would be pointless (but for shits and giggle)yep
-        //for now that'll stay as an easter egg; an hour for now, if it's a problem we can always change it
+        //for now that'll b stay as an easter egg; an hour for now, if it's a problem we can always change it
     }
 
     protected void pauseApp() {

@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.Talon;
  *
  * @author Darvin
  */
-public class FailSafeRobot extends SimpleRobot{
+public class FailSafeRobot{
 
 
 
@@ -28,8 +28,11 @@ public class FailSafeRobot extends SimpleRobot{
     
     
     public static void main(String[] args){
-     args[0] = "John";
         System.out.println("FAILSAFE ROBOT HAS BEEN STARTED"); //it works
+        if(AvianceRobot.driverStation.isAutonomous()){System.out.println("Auto");}
+        else if(AvianceRobot.driverStation.isOperatorControl()){System.out.println("Tele");}
+        else if(AvianceRobot.driverStation.isDisabled()){System.out.println("Disabled");}
+        else{System.out.println("ELSE");}
      
         
 

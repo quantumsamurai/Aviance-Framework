@@ -6,7 +6,6 @@ package edu.qs.frc.modules;
 
 import edu.qs.frc.threading.AvianceThread;
 import edu.qs.frc.threading.AvianceThreadManager;
-import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
@@ -30,7 +29,9 @@ public class AutonomousRoutines extends AvianceThread{
       Time(60);
           
     }
-    if(routine == 2){System.out.println("Entered Auto 2");}
+    if(routine == 2){System.out.println("Entered Auto 2");
+   
+    }
 if(routine ==3)  {  System.out.println("Entered Auto 3");}
     if(routine == 4){System.out.println("Entered Auto 4");}
     if(routine == 5){System.out.println("Entered Auto 5");}

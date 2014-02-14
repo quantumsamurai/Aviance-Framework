@@ -21,7 +21,7 @@ public class AvianceTankDrive extends AvianceThread{
    // Talon back_right = (Talon) Hardware.pwm[Hardware.talon_back_right];
 public static     Talon leftmotor = (Talon) Hardware.pwm[Hardware.talon_front_left];
     public static Talon front_right = (Talon) Hardware.pwm[Hardware.talon_front_right];
-    public static Gyro gyro = new Gyro(Hardware.gyro_port);
+    
    // Servo servo = new Servo(4);
      double left;
      double right;
@@ -44,7 +44,7 @@ public static     Talon leftmotor = (Talon) Hardware.pwm[Hardware.talon_front_le
 
         System.out.println("Left Encoder"+ Hardware.encoder_front_left.getDistance() /2.2375); // 8.95 per rev
      System.out.println("Right Encoder" + Hardware.encoder_front_right.getDistance() /2.2375);// -8.95 per revolution
-   System.out.println("Gyro " + gyro.getAngle());
+ 
 
    {   left = -.5*(Hardware.joystick1.getRawAxis(2));
         

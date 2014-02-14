@@ -4,6 +4,7 @@
  */
 package edu.qs.frc.modules;
 
+import edu.qs.frc.hardware.Hardware;
 import edu.qs.frc.hardware.Joystick1Simplify;
 import edu.qs.frc.threading.AvianceThread;
 import edu.qs.frc.threading.AvianceThreadManager;
@@ -27,7 +28,7 @@ public class SFXTest extends AvianceThread{
                 SmartDashboard.putBoolean("Button Left Trigger", Joystick1Simplify.getLeftTriggerButton());
         SmartDashboard.putNumber("Drive Left", AvianceTankDrive.leftmotor.getSpeed());
         SmartDashboard.putNumber("Drive Right", AvianceTankDrive.front_right.getSpeed());
-        SmartDashboard.putNumber("Gyro Angle", AvianceTankDrive.gyro.getAngle());
+        SmartDashboard.putNumber("Gyro Angle", Hardware.gyro.getAngle());
         SmartDashboard.putNumber("Sonar", Sonars.sonarVoltage1);
     }
     protected void reset(){}

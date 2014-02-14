@@ -22,9 +22,9 @@ public class Indexer extends AvianceThread{
     }
     protected void iteration(){
       if(Joystick1Simplify.getLeftTriggerButton()){
-    arm.set(.5);} // intake
+    arm.set(1);} // intake
     
-      else if(Joystick1Simplify.getRightTriggerButton()){arm.set(-.25);
+      else if(Joystick1Simplify.getRightTriggerButton()){arm.set(-1);
       }// extract
       else{arm.set(0);
       }

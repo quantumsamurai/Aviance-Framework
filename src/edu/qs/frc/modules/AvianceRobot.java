@@ -23,7 +23,7 @@ public final class AvianceRobot extends AvianceThread{
     public static DriverStation driverStation= DriverStation.getInstance();
     private Watchdog watchdog = Watchdog.getInstance();
     public static  AutonomousRoutinePoller poller;
-    private AvianceGeneralShooter shooter;
+    
     
     public static final String  autonomousThreads = "autonomousThreads";
     public static final String systemThreadGroup = "roboxsysthreads";
@@ -57,7 +57,10 @@ public final class AvianceRobot extends AvianceThread{
         //damn   we need to figure out why the main executable (isolate) is exiting prematurley. i suspect an uncaught exception
         // but where could that be in EntryPoint this   is the question   
     }
-    
+       public static    boolean autonomous;
+        public static boolean teleoperated;
+        public static boolean fms;
+        public static boolean disabled; 
     /**
      * 
      */
@@ -67,10 +70,7 @@ public final class AvianceRobot extends AvianceThread{
         System.out.println("Starting robot manager");
         
         int autonomousRoutine = 1;
-        boolean autonomous;
-        boolean teleoperated;
-        boolean fms;
-        boolean disabled; // why did you create a boolean table?? // so instead of writing out this crap.. twice, we just check it once at the begining of the loop; makes the code more consice
+// why did you create a boolean table?? // so instead of writing out this crap.. twice, we just check it once at the begining of the loop; makes the code more consice
         
         try{
             while(true){
@@ -92,7 +92,7 @@ public final class AvianceRobot extends AvianceThread{
                 }
                 
                 else if (autonomous){
-                    threadManager.startThreads(autonomousRoutines[autonomousRoutine]);
+                    
                     threadManager.startThreads(autonomousThreads);
                     
                     while(driverStation.isEnabled())
@@ -139,9 +139,9 @@ public final class AvianceRobot extends AvianceThread{
             
              // and over here is where we launch another Isolate program that is very simple and guaranteed to work in worse case senario
         
-        //    Isolate failsafe = new Isolate("edu.qs.frc.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
-        //    failsafe.start();
-          //  failsafe.join();
+//          Isolate failsafe = new Isolate("edu.qs.frc.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
+//            failsafe.start();
+//           failsafe.join();
             
         }
     }

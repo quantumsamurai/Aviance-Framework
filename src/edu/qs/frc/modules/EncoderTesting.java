@@ -18,7 +18,7 @@ AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
 }    
 protected void iteration(){
     
-System.out.println("Left Encoder Rate: " + Hardware.encoder_front_left.getRate());
+System.out.println("Left Encoder Rate: " + Hardware.encoder_front_left.getDistance());
 }
 protected void reset(){}
 }

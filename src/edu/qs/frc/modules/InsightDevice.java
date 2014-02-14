@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class InsightDevice  extends AvianceThread{
     public InsightDevice(){
     //    System.out.println("Insight Thread");
-    AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
+    AvianceThreadManager.getInstance().addThread(AvianceRobot.systemThreadGroup, this);
     
     
     }
@@ -26,7 +26,7 @@ public class InsightDevice  extends AvianceThread{
     DecimalData acceleration;
     float battVoltage = (float)AvianceRobot.driverStation.getBatteryVoltage();
     float accelerometerX = (float)AccelerometerReadings.accelerometer.getAcceleration(ADXL345_I2C.Axes.kX);
-    float gyroAngle =(float) AvianceTankDrive.gyro.getAngle();
+    float gyroAngle =(float) Hardware.gyro.getAngle();
     protected void iteration(){
         SmartDashboard.putString("Insight", Hardware.Active);
        // System.out.println(battVoltage);
