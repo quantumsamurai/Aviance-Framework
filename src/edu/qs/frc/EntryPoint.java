@@ -32,14 +32,14 @@ public class EntryPoint extends MIDlet {
         AvianceRobot robot = new AvianceRobot();
    //     new SFXTest();
         new AvianceHybridDrive();
-        new AutonomousRoutines();
-        new Shooter();
-        new AutonomousRoutinePoller();
+        //new AutonomousRoutines();
+    //    new Shooter();
+      //  new AutonomousRoutinePoller();
         //new Sonars();
-        new InsightDevice();
+    //    new InsightDevice();
 //        new AccelerometerReadings();
-        new Defense();
-        new Indexer();
+      //  new Defender();
+        //new Indexer();
         
         try{
             Thread.sleep(3600000); //this is equivalant to hour day lol really? in ms yes

@@ -34,9 +34,9 @@ public class Hardware {
     public static final int talon_left_arm = 3;
     public static final int talon_shooter = 4;
     //public static final int talon_right_arm = 4;
-    public static final int relay_defense = 1;
-    public static final int relay_winch = 3;
-    public static final int relay_compressor =2;
+    //public static final int relay_defense = 2;
+    //public static final int relay_winch = 3;
+  //  public static final int relay_compressor =1;
     
     //toggle variables
      private static boolean motorStatus;
@@ -94,7 +94,7 @@ private static boolean currentButton = false;
 //        pwm[talon_back_left] = new Talon(talon_back_left);
 //        pwm[talon_back_right] = new Talon(talon_back_right); //yep, now lets make sure it works
 //        
-        relays[relay_defense] = new Relay(relay_defense);
+//        relays[relay_defense] = new Relay(relay_defense);
      
       //  relays[relay_winch] = new Relay(relay_winch);
        

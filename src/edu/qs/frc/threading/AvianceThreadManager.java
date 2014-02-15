@@ -4,6 +4,7 @@
  */
 package edu.qs.frc.threading;
 
+import edu.qs.frc.modules.Defender;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -144,4 +145,7 @@ public class AvianceThreadManager {
         return managerInstance;
     }
     private AvianceThreadManager(){}
+
+    public void addThread(String teleopThreads, Defender aThis) {
+    }
 }
