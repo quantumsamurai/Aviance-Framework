@@ -6,9 +6,11 @@ package edu.qs.frc.modules;
 
 import edu.qs.frc.hardware.Hardware;
 import edu.qs.frc.hardware.Joystick1Simplify;
+import edu.qs.frc.hardware.Joystick2Simplify;
 import edu.qs.frc.threading.AvianceThread;
 import edu.qs.frc.threading.AvianceThreadManager;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Talon;
 
@@ -17,17 +19,18 @@ import edu.wpi.first.wpilibj.Talon;
  * @author admin
  */
 public class AvianceHybridDrive extends AvianceThread{
+    private double boost;
     public AvianceHybridDrive(){
         AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);
     }
    public static Talon drive_left = new Talon(Hardware.talon_front_left);
    public static Talon drive_right = new Talon(Hardware.talon_front_right);
        Talon shooter = new Talon(4);
-       static Relay defense = (Relay)Hardware.relays[1];
+         DoubleSolenoid actuators = new DoubleSolenoid(1,2);
        Talon arm = new Talon(3);
 
   DigitalInput pressure = new DigitalInput(5);
-  Relay comp = new Relay(2);
+  Relay comp = new Relay(1);
        double leftspeed;
     double rightspeed;
     double DPadXValue;
@@ -44,6 +47,8 @@ public class AvianceHybridDrive extends AvianceThread{
         }else if(Joystick1Simplify.DPadXAxis() < 0){DPadXValue -=.1;}
         else{DPadXValue = 0;}
         
+        if(Joystick1Simplify.getRightTriggerButton()){boost = .25;}else{ boost = 0;}
+        
         
                 if(Joystick1Simplify.DPadYAxis() > 0){
          DPadYValue +=.05;
@@ -52,8 +57,8 @@ public class AvianceHybridDrive extends AvianceThread{
         limit(DPadXValue);
         limit(DPadYValue);
         
-        leftspeed = -DPadYValue -DPadXValue + LeftJoystick * .5;
-    rightspeed = -DPadYValue + DPadXValue + RightJoystick * .5;
+        leftspeed = DPadYValue -DPadXValue + LeftJoystick * .75 + boost;
+    rightspeed = DPadYValue + DPadXValue + RightJoystick * .75 + boost;
             if(Joystick1Simplify.getX()){Hardware.gyro.reset();}
     System.out.println("Angle" + Hardware.gyro.getAngle());
     drive_left.set(leftspeed);
@@ -78,30 +83,28 @@ public class AvianceHybridDrive extends AvianceThread{
     protected void reset(){}
 
     private double limit(double speed) {
-        if(Math.abs(speed) > .5){ speed = .5;}
+        if(Math.abs(speed) > 1){ speed = 1;}
         else{speed = speed;}
         return speed;
     }
    
     private void defense(){
-    if(pressure.get() == false){
-    comp.set(Relay.Value.kOn);
+   if(Hardware.toggleJoystick1(4)){comp.set(Relay.Value.kOff);
+    }else{
+        comp.set(Relay.Value.kOn);
     comp.setDirection(Relay.Direction.kForward);
-    }else if(Hardware.toggleJoystick1(4)){comp.set(Relay.Value.kOff);
-    }else{comp.set(Relay.Value.kOff);
     }
     
-      if(Joystick1Simplify.getLeftBackButton()){//expand actuator
-       defense.set(Relay.Value.kOn);
-       defense.setDirection(Relay.Direction.kForward);
+      if(Joystick2Simplify.getB()){//expand actuator
+       actuators.set(DoubleSolenoid.Value.kForward);
    }
-   else if(Joystick1Simplify.getRightBackButton()){
-       //defense.set(Relay.Value.kOn);
-       //defense.setDirection(Relay.Direction.kReverse);
+   else if(Joystick2Simplify.getX()){
+      actuators.set(DoubleSolenoid.Value.kReverse);
    //retract
-   }
-   else{ //defense.set(Relay.Value.kOff);
+   }    
+   else{ actuators.set(DoubleSolenoid.Value.kOff);
       }
+  
     
     }
     
